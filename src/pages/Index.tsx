@@ -23,11 +23,6 @@ const tips = [
   },
 ];
 
-const stats = [
-  { icon: Users, value: "50K+", label: "Usuários ativos" },
-  { icon: TrendingUp, value: "R$2M+", label: "Em oportunidades" },
-  { icon: Star, value: "4.8", label: "Avaliação média" },
-];
 
 const benefits = [
   "Acesso às melhores ofertas do mercado",

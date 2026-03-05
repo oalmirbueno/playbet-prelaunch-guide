@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2, Users, TrendingUp } from "lucide-react";
+import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import playBetLogo from "@/assets/playbet-logo.png";
 
@@ -23,11 +23,6 @@ const tips = [
   },
 ];
 
-const stats = [
-  { icon: Users, value: "50K+", label: "Usuários ativos" },
-  { icon: TrendingUp, value: "R$2M+", label: "Em oportunidades" },
-  { icon: Star, value: "4.8", label: "Avaliação média" },
-];
 
 const benefits = [
   "Acesso às melhores ofertas do mercado",
@@ -91,26 +86,6 @@ const Index = () => {
         </motion.div>
       </motion.section>
 
-      {/* Stats */}
-      <motion.section
-        className="w-full max-w-lg mx-auto grid grid-cols-3 gap-3 mb-10 md:mb-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        {stats.map((stat, i) => (
-          <motion.div
-            key={stat.label}
-            className="bg-card rounded-xl p-4 text-center border border-border"
-            variants={fadeUp}
-            custom={i}
-          >
-            <stat.icon className="w-5 h-5 text-accent mx-auto mb-2" />
-            <p className="text-xl md:text-2xl font-black text-foreground">{stat.value}{stat.label === "Avaliação média" && <span className="text-accent ml-1">★</span>}</p>
-            <p className="text-muted-foreground text-[10px] md:text-xs mt-1">{stat.label}</p>
-          </motion.div>
-        ))}
-      </motion.section>
 
       {/* Tips */}
       <section className="w-full max-w-lg mx-auto space-y-4 mb-10 md:mb-16">

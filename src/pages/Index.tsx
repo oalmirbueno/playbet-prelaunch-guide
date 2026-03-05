@@ -86,7 +86,7 @@ const Index = () => {
             className="w-full"
             onClick={() => window.open(GAME_URL, "_blank")}
           >
-            Continuar para o jogo <ArrowRight className="ml-2 w-5 h-5" />
+            Acessar oportunidades <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>
       </motion.section>

@@ -106,7 +106,7 @@ const Index = () => {
             custom={i}
           >
             <stat.icon className="w-5 h-5 text-accent mx-auto mb-2" />
-            <p className="text-xl md:text-2xl font-black text-foreground">{stat.value}</p>
+            <p className="text-xl md:text-2xl font-black text-foreground">{stat.value}{stat.label === "Avaliação média" && <span className="text-accent ml-1">★</span>}</p>
             <p className="text-muted-foreground text-[10px] md:text-xs mt-1">{stat.label}</p>
           </motion.div>
         ))}

@@ -47,7 +47,7 @@ const fadeUp = {
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center px-4 py-8 md:py-16 overflow-hidden">
+    <div className="min-h-screen bg-background flex flex-col items-center px-5 py-6 md:py-16 overflow-hidden">
       {/* Logo */}
       <motion.img
         src={playBetLogo}

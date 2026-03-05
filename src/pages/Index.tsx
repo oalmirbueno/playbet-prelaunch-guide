@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Zap, Shield, TrendingDown, Star, Clock, ArrowRight, CheckCircle2, Users, Trophy } from "lucide-react";
+import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2, Users, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import playBetLogo from "@/assets/playbet-logo.png";
 
@@ -7,33 +7,33 @@ const GAME_URL = "https://playbet.com";
 
 const tips = [
   {
-    icon: TrendingDown,
-    title: "Comece com valores baixos",
-    desc: "Aposte pouco no início e aumente conforme se sentir confortável.",
+    icon: Target,
+    title: "Conheça as melhores ofertas",
+    desc: "A PlayBet seleciona as oportunidades mais vantajosas para você.",
   },
   {
     icon: Zap,
-    title: "Jogos são entretenimento",
-    desc: "Jogue por diversão, nunca como fonte de renda.",
+    title: "Aproveite bônus exclusivos",
+    desc: "Acesse promoções e vantagens que só a nossa rede oferece.",
   },
   {
     icon: Shield,
-    title: "Use plataformas verificadas",
-    desc: "Sempre jogue em sites regulamentados e seguros.",
+    title: "Parceiros verificados",
+    desc: "Trabalhamos apenas com marcas confiáveis e reconhecidas no mercado.",
   },
 ];
 
 const stats = [
-  { icon: Users, value: "50K+", label: "Jogadores ativos" },
-  { icon: Trophy, value: "R$2M+", label: "Em prêmios" },
+  { icon: Users, value: "50K+", label: "Usuários ativos" },
+  { icon: TrendingUp, value: "R$2M+", label: "Em oportunidades" },
   { icon: Star, value: "4.8", label: "Avaliação média" },
 ];
 
 const benefits = [
-  "Saques rápidos e seguros",
+  "Acesso às melhores ofertas do mercado",
   "Suporte 24/7 em português",
-  "Bônus exclusivos para novos jogadores",
-  "Intermediadora 100% confiável e verificada",
+  "Bônus e promoções exclusivas",
+  "Rede de parceiros 100% verificados",
 ];
 
 const fadeUp = {
@@ -77,7 +77,7 @@ const Index = () => {
           variants={fadeUp}
           custom={1}
         >
-          Algumas dicas rápidas para jogar melhor e evitar erros comuns.
+          Descubra como aproveitar as melhores oportunidades com segurança.
         </motion.p>
         <motion.div variants={fadeUp} custom={2}>
           <Button
@@ -86,7 +86,7 @@ const Index = () => {
             className="w-full"
             onClick={() => window.open(GAME_URL, "_blank")}
           >
-            Continuar para o jogo <ArrowRight className="ml-2 w-5 h-5" />
+            Acessar oportunidades <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>
       </motion.section>
@@ -121,7 +121,7 @@ const Index = () => {
           viewport={{ once: true }}
         >
           <Clock className="w-5 h-5 text-accent" />
-          Dicas rápidas antes de jogar
+          Dicas rápidas antes de começar
         </motion.h2>
         {tips.map((tip, i) => (
           <motion.div
@@ -191,10 +191,10 @@ const Index = () => {
           className="w-full"
           onClick={() => window.open(GAME_URL, "_blank")}
         >
-          Entrar no jogo agora <ArrowRight className="ml-2 w-5 h-5" />
+          Começar agora <ArrowRight className="ml-2 w-5 h-5" />
         </Button>
         <p className="text-muted-foreground text-xs mt-4">
-          +18 · Jogue com responsabilidade
+          +18 · Use com responsabilidade
         </p>
       </motion.div>
 
@@ -209,7 +209,7 @@ const Index = () => {
         <p className="text-muted-foreground text-[10px] md:text-xs leading-relaxed">
           © 2026 PlayBet · Todos os direitos reservados
           <br />
-          Jogo responsável · Proibido para menores de 18 anos · Intermediadora de jogos online
+          Uso responsável · +18 · Rede de afiliados
         </p>
       </motion.footer>
     </div>

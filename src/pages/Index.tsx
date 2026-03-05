@@ -77,7 +77,7 @@ const Index = () => {
           variants={fadeUp}
           custom={1}
         >
-          Algumas dicas rápidas para jogar melhor e evitar erros comuns.
+          Descubra como aproveitar as melhores oportunidades com segurança.
         </motion.p>
         <motion.div variants={fadeUp} custom={2}>
           <Button

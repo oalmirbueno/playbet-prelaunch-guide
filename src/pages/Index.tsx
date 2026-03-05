@@ -121,7 +121,7 @@ const Index = () => {
           viewport={{ once: true }}
         >
           <Clock className="w-5 h-5 text-accent" />
-          Dicas rápidas antes de jogar
+          Dicas rápidas antes de começar
         </motion.h2>
         {tips.map((tip, i) => (
           <motion.div

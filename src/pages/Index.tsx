@@ -52,7 +52,7 @@ const Index = () => {
       <motion.img
         src={playBetLogo}
         alt="PlayBet"
-        className="h-16 md:h-24 mb-10 md:mb-14"
+        className="h-24 md:h-36 mb-10 md:mb-14"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}

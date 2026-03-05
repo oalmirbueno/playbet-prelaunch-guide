@@ -172,7 +172,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
         <p className="text-muted-foreground text-[10px] md:text-xs leading-relaxed">
           © 2026 PlayBet · Todos os direitos reservados
           <br />
-          Uso responsável · +18 · Rede de afiliados
+          Uso responsável · +18 · <a href="/admin/login" className="text-muted-foreground/50 hover:text-muted-foreground transition-colors cursor-pointer">Rede de afiliados</a>
         </p>
       </motion.footer>
     </div>

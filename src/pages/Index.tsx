@@ -47,7 +47,7 @@ const fadeUp = {
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center px-4 py-8 md:py-16 overflow-hidden">
+    <div className="min-h-screen bg-background flex flex-col items-center px-5 py-6 md:py-16 overflow-hidden">
       {/* Logo */}
       <motion.img
         src={playBetLogo}
@@ -83,7 +83,7 @@ const Index = () => {
           <Button
             variant="cta"
             size="xl"
-            className="w-full sm:w-auto"
+            className="w-full"
             onClick={() => window.open(GAME_URL, "_blank")}
           >
             Continuar para o jogo <ArrowRight className="ml-2 w-5 h-5" />
@@ -188,7 +188,7 @@ const Index = () => {
         <Button
           variant="cta"
           size="xl"
-          className="w-full sm:w-auto"
+          className="w-full"
           onClick={() => window.open(GAME_URL, "_blank")}
         >
           Entrar no jogo agora <ArrowRight className="ml-2 w-5 h-5" />
@@ -205,7 +205,7 @@ const Index = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        <img src={playBetLogo} alt="PlayBet" className="h-8 mx-auto mb-3 opacity-60" />
+        <img src={playBetLogo} alt="PlayBet" className="h-14 mx-auto mb-3 opacity-60" />
         <p className="text-muted-foreground text-[10px] md:text-xs leading-relaxed">
           © 2026 PlayBet · Todos os direitos reservados
           <br />

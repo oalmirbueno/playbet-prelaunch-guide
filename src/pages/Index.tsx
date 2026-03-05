@@ -191,7 +191,7 @@ const Index = () => {
           className="w-full"
           onClick={() => window.open(GAME_URL, "_blank")}
         >
-          Entrar no jogo agora <ArrowRight className="ml-2 w-5 h-5" />
+          Começar agora <ArrowRight className="ml-2 w-5 h-5" />
         </Button>
         <p className="text-muted-foreground text-xs mt-4">
           +18 · Jogue com responsabilidade

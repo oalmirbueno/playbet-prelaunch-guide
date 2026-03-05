@@ -7,33 +7,33 @@ const GAME_URL = "https://playbet.com";
 
 const tips = [
   {
-    icon: TrendingDown,
-    title: "Comece com valores baixos",
-    desc: "Aposte pouco no início e aumente conforme se sentir confortável.",
+    icon: Target,
+    title: "Conheça as melhores ofertas",
+    desc: "A PlayBet seleciona as oportunidades mais vantajosas para você.",
   },
   {
     icon: Zap,
-    title: "Jogos são entretenimento",
-    desc: "Jogue por diversão, nunca como fonte de renda.",
+    title: "Aproveite bônus exclusivos",
+    desc: "Acesse promoções e vantagens que só a nossa rede oferece.",
   },
   {
     icon: Shield,
-    title: "Use plataformas verificadas",
-    desc: "Sempre jogue em sites regulamentados e seguros.",
+    title: "Parceiros verificados",
+    desc: "Trabalhamos apenas com marcas confiáveis e reconhecidas no mercado.",
   },
 ];
 
 const stats = [
-  { icon: Users, value: "50K+", label: "Jogadores ativos" },
-  { icon: Trophy, value: "R$2M+", label: "Em prêmios" },
+  { icon: Users, value: "50K+", label: "Usuários ativos" },
+  { icon: TrendingUp, value: "R$2M+", label: "Em oportunidades" },
   { icon: Star, value: "4.8", label: "Avaliação média" },
 ];
 
 const benefits = [
-  "Saques rápidos e seguros",
+  "Acesso às melhores ofertas do mercado",
   "Suporte 24/7 em português",
-  "Bônus exclusivos para novos jogadores",
-  "Intermediadora 100% confiável e verificada",
+  "Bônus e promoções exclusivas",
+  "Rede de parceiros 100% verificados",
 ];
 
 const fadeUp = {

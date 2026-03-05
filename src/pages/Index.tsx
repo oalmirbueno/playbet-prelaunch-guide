@@ -83,7 +83,7 @@ const Index = () => {
           <Button
             variant="cta"
             size="xl"
-            className="w-full sm:w-auto"
+            className="w-full"
             onClick={() => window.open(GAME_URL, "_blank")}
           >
             Continuar para o jogo <ArrowRight className="ml-2 w-5 h-5" />

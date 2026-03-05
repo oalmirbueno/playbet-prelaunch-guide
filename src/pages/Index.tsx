@@ -209,7 +209,7 @@ const Index = () => {
         <p className="text-muted-foreground text-[10px] md:text-xs leading-relaxed">
           © 2026 PlayBet · Todos os direitos reservados
           <br />
-          Jogo responsável · Proibido para menores de 18 anos
+          Jogo responsável · Proibido para menores de 18 anos · Intermediadora de jogos online
         </p>
       </motion.footer>
     </div>

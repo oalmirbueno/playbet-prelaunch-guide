@@ -33,7 +33,7 @@ const benefits = [
   "Saques rápidos e seguros",
   "Suporte 24/7 em português",
   "Bônus exclusivos para novos jogadores",
-  "Plataforma 100% regulamentada",
+  "Intermediadora 100% confiável e verificada",
 ];
 
 const fadeUp = {

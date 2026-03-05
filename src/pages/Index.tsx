@@ -205,7 +205,7 @@ const Index = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        <img src={playBetLogo} alt="PlayBet" className="h-8 mx-auto mb-3 opacity-60" />
+        <img src={playBetLogo} alt="PlayBet" className="h-14 mx-auto mb-3 opacity-60" />
         <p className="text-muted-foreground text-[10px] md:text-xs leading-relaxed">
           © 2026 PlayBet · Todos os direitos reservados
           <br />

@@ -33,7 +33,7 @@ const benefits = [
   "Saques rápidos e seguros",
   "Suporte 24/7 em português",
   "Bônus exclusivos para novos jogadores",
-  "Plataforma 100% regulamentada",
+  "Intermediadora 100% confiável e verificada",
 ];
 
 const fadeUp = {
@@ -209,7 +209,7 @@ const Index = () => {
         <p className="text-muted-foreground text-[10px] md:text-xs leading-relaxed">
           © 2026 PlayBet · Todos os direitos reservados
           <br />
-          Jogo responsável · Proibido para menores de 18 anos
+          Jogo responsável · Proibido para menores de 18 anos · Intermediadora de jogos online
         </p>
       </motion.footer>
     </div>

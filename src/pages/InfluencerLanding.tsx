@@ -45,7 +45,19 @@ const InfluencerLanding = () => {
         .eq("slug", resolvedSlug)
         .maybeSingle();
       if (error) throw error;
-      return data;
+      if (!data) return null;
+
+      // If instance has no affiliate_link, fetch from influencers table
+      let finalLink = data.affiliate_link;
+      if (!finalLink && data.influencer_id) {
+        const { data: inf } = await centralSupabase
+          .from("influencers")
+          .select("affiliate_link")
+          .eq("id", data.influencer_id)
+          .maybeSingle();
+        finalLink = inf?.affiliate_link || null;
+      }
+      return { ...data, affiliate_link: finalLink };
     },
     enabled: hasRef && !!landingPage?.id,
   });

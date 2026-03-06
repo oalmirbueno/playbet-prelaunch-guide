@@ -3,7 +3,7 @@ import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2 } from "luci
 import { Button } from "@/components/ui/button";
 import playBetLogo from "@/assets/playbet-logo.png";
 
-const DEFAULT_URL = "https://playbet.com";
+
 
 const tips = [
   {
@@ -45,11 +45,12 @@ interface LandingPageProps {
 }
 
 const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
-  const targetUrl = affiliateLink || DEFAULT_URL;
+  const hasLink = !!affiliateLink;
 
   const handleCta = () => {
+    if (!hasLink) return;
     if (onCtaClick) onCtaClick();
-    window.open(targetUrl, "_blank");
+    window.open(affiliateLink, "_blank");
   };
 
   return (
@@ -84,7 +85,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
           Descubra como aproveitar as melhores oportunidades com segurança.
         </motion.p>
         <motion.div variants={fadeUp} custom={2}>
-          <Button variant="cta" size="xl" className="w-full" onClick={handleCta}>
+          <Button variant="cta" size="xl" className="w-full" onClick={handleCta} disabled={!hasLink}>
             Acessar oportunidades <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>
@@ -156,7 +157,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <Button variant="cta" size="xl" className="w-full" onClick={handleCta}>
+        <Button variant="cta" size="xl" className="w-full" onClick={handleCta} disabled={!hasLink}>
           Começar agora <ArrowRight className="ml-2 w-5 h-5" />
         </Button>
         <p className="text-muted-foreground text-xs mt-4">+18 · Use com responsabilidade</p>

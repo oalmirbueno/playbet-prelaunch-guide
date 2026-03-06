@@ -40,14 +40,13 @@ const InfluencerLanding = () => {
   const { data: instance, isLoading: instLoading } = useQuery({
     queryKey: ["central-instance", landingPage?.id, resolvedSlug],
     queryFn: async () => {
-      console.log("[LP DEBUG] fetching instance with landing_page_id:", landingPage!.id, "slug:", resolvedSlug);
       const { data, error } = await centralSupabase
         .from("landing_page_instances")
         .select("id, affiliate_link, influencer_id, is_active")
         .eq("landing_page_id", landingPage!.id)
         .eq("slug", resolvedSlug)
         .maybeSingle();
-      console.log("[LP DEBUG] instance result:", data, "error:", error);
+      if (error) throw error;
       if (error) throw error;
       if (!data) return null;
 

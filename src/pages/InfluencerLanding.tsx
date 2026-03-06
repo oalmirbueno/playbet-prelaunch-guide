@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 const CURRENT_DOMAIN = () => {
   const host = window.location.hostname;
   if (host === "localhost" || host.includes("lovable.app") || host.includes("lovableproject.com")) {
-    return "oportunidades.playbet.app.br";
+    return "https://oportunidades.playbet.app.br";
   }
   return host;
 };

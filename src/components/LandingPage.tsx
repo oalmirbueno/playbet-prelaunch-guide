@@ -157,7 +157,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <Button variant="cta" size="xl" className="w-full" onClick={handleCta}>
+        <Button variant="cta" size="xl" className="w-full" onClick={handleCta} disabled={!hasLink}>
           Começar agora <ArrowRight className="ml-2 w-5 h-5" />
         </Button>
         <p className="text-muted-foreground text-xs mt-4">+18 · Use com responsabilidade</p>

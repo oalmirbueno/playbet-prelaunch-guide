@@ -9,7 +9,8 @@ const CURRENT_DOMAIN = () => {
   if (host === "localhost" || host.includes("lovable.app") || host.includes("lovableproject.com")) {
     return "https://oportunidades.playbet.app.br";
   }
-  return host;
+  // In production, the DB stores domain with protocol
+  return window.location.origin;
 };
 
 const InfluencerLanding = () => {

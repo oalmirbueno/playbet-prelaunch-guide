@@ -1,5 +1,5 @@
-import LandingPage from "@/components/LandingPage";
+import InfluencerLanding from "./InfluencerLanding";
 
-const Index = () => <LandingPage />;
+const Index = () => <InfluencerLanding />;
 
 export default Index;

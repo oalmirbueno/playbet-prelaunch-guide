@@ -1,12 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { centralSupabase } from "@/lib/centralClient";
 import LandingPage from "@/components/LandingPage";
-import NotFound from "./NotFound";
+import { Button } from "@/components/ui/button";
 
 const CURRENT_DOMAIN = () => {
   const host = window.location.hostname;
-  // In dev/preview, fallback to production domain
   if (host === "localhost" || host.includes("lovable.app")) {
     return "oportunidades.playbet.app.br";
   }
@@ -14,11 +13,15 @@ const CURRENT_DOMAIN = () => {
 };
 
 const InfluencerLanding = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug: routeSlug } = useParams<{ slug: string }>();
+  const [searchParams] = useSearchParams();
 
-  // Step 1: Find landing_page by domain
+  const queryRef = searchParams.get("ref") || searchParams.get("slug");
+  const resolvedSlug = (queryRef || routeSlug || "").trim();
+  const hasRef = resolvedSlug.length > 0;
+
   const { data: landingPage, isLoading: lpLoading } = useQuery({
-    queryKey: ["central-landing-page", CURRENT_DOMAIN()],
+    queryKey: ["central-landing-page", CURRENT_DOMAIN(), resolvedSlug],
     queryFn: async () => {
       const { data, error } = await centralSupabase
         .from("landing_pages")
@@ -29,22 +32,22 @@ const InfluencerLanding = () => {
       if (error) throw error;
       return data;
     },
+    enabled: hasRef,
   });
 
-  // Step 2: Find instance by slug + landing_page_id
   const { data: instance, isLoading: instLoading } = useQuery({
-    queryKey: ["central-instance", landingPage?.id, slug],
+    queryKey: ["central-instance", landingPage?.id, resolvedSlug],
     queryFn: async () => {
       const { data, error } = await centralSupabase
         .from("landing_page_instances")
         .select("id, affiliate_link, influencer_id, is_active")
         .eq("landing_page_id", landingPage!.id)
-        .eq("slug", slug!)
+        .eq("slug", resolvedSlug)
         .maybeSingle();
       if (error) throw error;
       return data;
     },
-    enabled: !!landingPage?.id && !!slug,
+    enabled: hasRef && !!landingPage?.id,
   });
 
   const trackClick = async () => {
@@ -58,13 +61,17 @@ const InfluencerLanding = () => {
         ip_address: null,
         user_agent: navigator.userAgent,
         referrer: document.referrer || null,
-        route: `/i/${slug}`,
+        route: `${window.location.pathname}${window.location.search}`,
         source: "lp_instance",
       });
     } catch {
       // silently fail — don't block redirect
     }
   };
+
+  if (!hasRef) {
+    return <LandingPage />;
+  }
 
   const isLoading = lpLoading || instLoading;
 
@@ -76,9 +83,20 @@ const InfluencerLanding = () => {
     );
   }
 
-  // Fallback: no landing page for this domain, no instance found, or instance inactive
   if (!landingPage || !instance || !instance.is_active) {
-    return <NotFound />;
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center px-5">
+        <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-6 md:p-8 text-center space-y-4">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground">Referência não encontrada</h1>
+          <p className="text-muted-foreground">
+            Essa referência está inválida ou inativa. Você pode continuar para a página padrão.
+          </p>
+          <Button variant="cta" size="xl" className="w-full" onClick={() => window.location.assign("/")}>
+            Ir para página padrão
+          </Button>
+        </div>
+      </div>
+    );
   }
 
   return <LandingPage affiliateLink={instance.affiliate_link} onCtaClick={trackClick} />;

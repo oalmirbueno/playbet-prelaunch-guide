@@ -7,6 +7,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recha
 import { ArrowLeft, Copy, ExternalLink, MousePointerClick } from "lucide-react";
 import { format, subDays, startOfDay } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
+import { buildPublicLandingUrl } from "@/lib/publicLandingUrl";
 
 const InfluencerDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -75,7 +76,7 @@ const InfluencerDetail = () => {
 
   const copyLink = () => {
     if (!influencer) return;
-    navigator.clipboard.writeText(`${window.location.origin}/i/${influencer.slug}`);
+    navigator.clipboard.writeText(buildPublicLandingUrl(influencer.slug));
     toast({ title: "Link copiado!" });
   };
 
@@ -97,17 +98,16 @@ const InfluencerDetail = () => {
           </Button>
           <div className="flex-1">
             <h1 className="text-2xl font-bold text-foreground">{influencer.name}</h1>
-            <p className="text-muted-foreground text-sm">/i/{influencer.slug}</p>
+            <p className="text-muted-foreground text-sm">?ref={influencer.slug}</p>
           </div>
           <Button variant="outline" size="sm" onClick={copyLink}>
             <Copy className="w-4 h-4 mr-2" /> Copiar link
           </Button>
-          <Button variant="outline" size="sm" onClick={() => window.open(`/i/${influencer.slug}`, "_blank")}>
+          <Button variant="outline" size="sm" onClick={() => window.open(buildPublicLandingUrl(influencer.slug), "_blank", "noopener,noreferrer")}>
             <ExternalLink className="w-4 h-4 mr-2" /> Ver página
           </Button>
         </div>
 
-        {/* Info */}
         <Card className="mb-6">
           <CardContent className="p-4 space-y-2">
             <div className="flex justify-between text-sm">
@@ -127,7 +127,6 @@ const InfluencerDetail = () => {
           </CardContent>
         </Card>
 
-        {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
           {metricCards.map((m) => (
             <Card key={m.label}>
@@ -141,7 +140,6 @@ const InfluencerDetail = () => {
           ))}
         </div>
 
-        {/* Chart */}
         <Card>
           <CardHeader>
             <CardTitle className="text-base">Cliques (14 dias)</CardTitle>

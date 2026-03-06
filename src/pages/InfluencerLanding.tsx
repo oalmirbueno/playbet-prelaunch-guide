@@ -25,24 +25,12 @@ const InfluencerLanding = () => {
     queryKey: ["central-landing-page", CURRENT_DOMAIN(), resolvedSlug],
     queryFn: async () => {
       const domain = CURRENT_DOMAIN();
-      console.log("[LP DEBUG] hostname:", window.location.hostname);
-      console.log("[LP DEBUG] resolved domain:", domain);
-      console.log("[LP DEBUG] resolvedSlug:", resolvedSlug);
-      
-      // Debug: fetch ALL landing pages to see what exists
-      const { data: allLps } = await centralSupabase
-        .from("landing_pages")
-        .select("id, domain, is_active")
-        .limit(20);
-      console.log("[LP DEBUG] ALL landing_pages:", JSON.stringify(allLps));
-      
       const { data, error } = await centralSupabase
         .from("landing_pages")
         .select("id")
         .eq("domain", domain)
         .eq("is_active", true)
         .maybeSingle();
-      console.log("[LP DEBUG] landing_page result:", data, "error:", error);
       if (error) throw error;
       return data;
     },

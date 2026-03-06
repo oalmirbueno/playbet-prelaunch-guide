@@ -3,7 +3,7 @@ import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2 } from "luci
 import { Button } from "@/components/ui/button";
 import playBetLogo from "@/assets/playbet-logo.png";
 
-const DEFAULT_URL = "https://playbet.com";
+
 
 const tips = [
   {

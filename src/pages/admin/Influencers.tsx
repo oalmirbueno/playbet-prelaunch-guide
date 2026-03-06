@@ -11,6 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, Plus, Copy, Pencil, Trash2 } from "lucide-react";
+import { buildPublicLandingUrl, getPublicLandingBaseUrl } from "@/lib/publicLandingUrl";
 
 const Influencers = () => {
   const navigate = useNavigate();
@@ -75,7 +76,7 @@ const Influencers = () => {
   };
 
   const copyLink = (slug: string) => {
-    navigator.clipboard.writeText(`${window.location.origin}/i/${slug}`);
+    navigator.clipboard.writeText(buildPublicLandingUrl(slug));
     toast({ title: "Link copiado!" });
   };
 
@@ -124,7 +125,7 @@ const Influencers = () => {
                     required
                   />
                   <p className="text-[10px] text-muted-foreground mt-1">
-                    URL: {window.location.origin}/i/{form.slug || "..."}
+                    URL: {form.slug ? buildPublicLandingUrl(form.slug) : `${getPublicLandingBaseUrl()}/?ref=...`}
                   </p>
                 </div>
                 <div>
@@ -166,7 +167,7 @@ const Influencers = () => {
                 {influencers?.map((inf) => (
                   <TableRow key={inf.id}>
                     <TableCell className="font-medium">{inf.name}</TableCell>
-                    <TableCell className="text-muted-foreground">/i/{inf.slug}</TableCell>
+                    <TableCell className="text-muted-foreground">?ref={inf.slug}</TableCell>
                     <TableCell className="text-center">
                       <span className={`text-xs px-2 py-0.5 rounded-full ${inf.is_active ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"}`}>
                         {inf.is_active ? "Ativo" : "Inativo"}

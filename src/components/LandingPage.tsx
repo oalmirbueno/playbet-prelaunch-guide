@@ -45,11 +45,12 @@ interface LandingPageProps {
 }
 
 const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
-  const targetUrl = affiliateLink || DEFAULT_URL;
+  const hasLink = !!affiliateLink;
 
   const handleCta = () => {
+    if (!hasLink) return;
     if (onCtaClick) onCtaClick();
-    window.open(targetUrl, "_blank");
+    window.open(affiliateLink, "_blank");
   };
 
   return (

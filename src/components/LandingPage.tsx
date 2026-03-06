@@ -85,7 +85,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
           Descubra como aproveitar as melhores oportunidades com segurança.
         </motion.p>
         <motion.div variants={fadeUp} custom={2}>
-          <Button variant="cta" size="xl" className="w-full" onClick={handleCta}>
+          <Button variant="cta" size="xl" className="w-full" onClick={handleCta} disabled={!hasLink}>
             Acessar oportunidades <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>

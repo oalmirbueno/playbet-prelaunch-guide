@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button";
 
 const CURRENT_DOMAIN = () => {
   const host = window.location.hostname;
-  if (host === "localhost" || host.includes("lovable.app")) {
-    return "oportunidades.playbet.app.br";
+  if (host === "localhost" || host.includes("lovable.app") || host.includes("lovableproject.com")) {
+    return "https://oportunidades.playbet.app.br";
   }
-  return host;
+  // In production, the DB stores domain with protocol
+  return window.location.origin;
 };
 
 const InfluencerLanding = () => {
@@ -23,10 +24,11 @@ const InfluencerLanding = () => {
   const { data: landingPage, isLoading: lpLoading } = useQuery({
     queryKey: ["central-landing-page", CURRENT_DOMAIN(), resolvedSlug],
     queryFn: async () => {
+      const domain = CURRENT_DOMAIN();
       const { data, error } = await centralSupabase
         .from("landing_pages")
         .select("id")
-        .eq("domain", CURRENT_DOMAIN())
+        .eq("domain", domain)
         .eq("is_active", true)
         .maybeSingle();
       if (error) throw error;
@@ -44,6 +46,7 @@ const InfluencerLanding = () => {
         .eq("landing_page_id", landingPage!.id)
         .eq("slug", resolvedSlug)
         .maybeSingle();
+      if (error) throw error;
       if (error) throw error;
       if (!data) return null;
 

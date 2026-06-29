@@ -108,6 +108,9 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
           transition={{ duration: 0.5 }}
         />
 
+        {/* Live opportunities from central DB (no topo, hidden if none) */}
+        <OpportunitiesSection />
+
         {/* Hero */}
         <motion.section
           className="text-center max-w-lg mx-auto mb-10 md:mb-16"

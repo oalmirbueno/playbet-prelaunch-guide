@@ -177,14 +177,6 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
             </div>
           </motion.div>
 
-                ))}
-                <span className="font-bold ml-1">4.9</span>
-              </div>
-              <div className="text-muted-foreground text-[10px] md:text-xs">
-                +50.000 brasileiros já entraram hoje
-              </div>
-            </div>
-          </motion.div>
 
           {/* Trust strip */}
           <motion.div

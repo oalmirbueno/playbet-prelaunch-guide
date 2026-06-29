@@ -137,43 +137,21 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
             Descubra como aproveitar as melhores oportunidades com segurança.
           </motion.p>
 
-          {/* Live social proof — real Brazilian faces */}
+          {/* Social proof — minimal, sem fotos */}
           <motion.div
-            className="flex flex-col items-center gap-3 mb-8"
+            className="flex flex-col items-center gap-2 mb-8"
             variants={fadeUp}
             custom={2}
           >
-            <div className="flex -space-x-3 items-center">
-              {avatars.map((src, i) => (
-                <div
-                  key={i}
-                  className="relative w-11 h-11 rounded-full border-2 border-background overflow-hidden bg-muted shadow-lg"
-                >
-                  <img
-                    src={src}
-                    alt="Brasileiro torcendo"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    width={512}
-                    height={512}
-                  />
-                </div>
+            <div className="flex items-center gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-accent text-accent drop-shadow-[0_0_6px_hsl(45_100%_50%/0.5)]" />
               ))}
-              <div className="relative w-11 h-11 rounded-full border-2 border-background bg-accent flex items-center justify-center text-[10px] font-black text-accent-foreground shadow-lg">
-                +50k
-              </div>
+              <span className="font-black text-foreground ml-2 text-sm">4.9</span>
             </div>
-            <div className="flex flex-col items-center gap-1">
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-accent text-accent drop-shadow-[0_0_6px_hsl(45_100%_50%/0.5)]" />
-                ))}
-                <span className="font-black text-foreground ml-2 text-sm">4.9</span>
-              </div>
-              <div className="text-muted-foreground text-[11px] md:text-xs flex items-center gap-1.5">
-                <BrazilFlag className="w-3.5 h-2.5" />
-                +50.000 brasileiros já entraram hoje
-              </div>
+            <div className="text-muted-foreground text-[11px] md:text-xs flex items-center gap-1.5">
+              <BrazilFlag className="w-3.5 h-2.5" />
+              Avaliação da comunidade brasileira
             </div>
           </motion.div>
 

@@ -75,6 +75,25 @@
   .gold-spot {
     background: radial-gradient(50% 50% at 50% 100%, hsl(45 100% 50% / 0.18) 0%, transparent 70%);
   }
+  .br-diagonal {
+    background-image: repeating-linear-gradient(
+      135deg,
+      transparent 0 22px,
+      hsl(141 100% 31% / 0.06) 22px 24px,
+      transparent 24px 46px,
+      hsl(51 100% 50% / 0.06) 46px 48px
+    );
+  }
+  .scoreboard {
+    background:
+      radial-gradient(120% 80% at 50% 0%, hsl(216 87% 31% / 0.35) 0%, transparent 60%),
+      linear-gradient(180deg, hsl(0 0% 9%) 0%, hsl(0 0% 6%) 100%);
+  }
+  @keyframes shimmer-gold {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(45 100% 50% / 0); }
+    50% { box-shadow: 0 0 24px 2px hsl(45 100% 50% / 0.35); }
+  }
+  .shimmer-gold { animation: shimmer-gold 2.6s ease-in-out infinite; }
   .gradient-border {
     border: 1px solid transparent;
     background-clip: padding-box;

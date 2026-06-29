@@ -99,8 +99,22 @@ const SkeletonGrid = () => (
   </div>
 );
 
-const getImage = (op: Opportunity) =>
-  (op as any).image_url || (op as any).banner_url || (op as any).thumbnail_url || null;
+const getImage = (op: Opportunity) => {
+  const m: any = (op as any).metadata || {};
+  return (
+    (op as any).image_url ||
+    (op as any).banner_url ||
+    (op as any).thumbnail_url ||
+    m?.media?.image_url ||
+    m?.image_url ||
+    null
+  );
+};
+
+const getImageAlt = (op: Opportunity) => {
+  const m: any = (op as any).metadata || {};
+  return m?.media?.image_alt || m?.image_alt || op.title || op.event_name || "Destaque";
+};
 
 const ImageOrFallback = ({ op, cat }: { op: Opportunity; cat: Cat }) => {
   const src = getImage(op);
@@ -111,13 +125,17 @@ const ImageOrFallback = ({ op, cat }: { op: Opportunity; cat: Cat }) => {
       <div className="relative h-32 w-full overflow-hidden bg-background">
         <img
           src={src}
-          alt={op.title || op.event_name || "Destaque"}
+          alt={getImageAlt(op)}
           loading="lazy"
           decoding="async"
           width={800}
           height={320}
           className="absolute inset-0 h-full w-full object-cover"
-          onError={(e) => ((e.currentTarget.style.display = "none"))}
+          onError={(e) => {
+            const el = e.currentTarget;
+            el.style.display = "none";
+            el.parentElement?.classList.add("img-failed");
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
       </div>

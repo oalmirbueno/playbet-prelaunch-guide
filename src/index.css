@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&display=swap');
 
 @layer base {
   :root {
@@ -58,6 +58,22 @@
   }
   .glow-primary {
     box-shadow: 0 0 30px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--primary) / 0.15);
+  }
+  .font-stadium {
+    font-family: 'Barlow Condensed', 'Inter', sans-serif;
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+  .pitch-grid {
+    background-image:
+      repeating-linear-gradient(90deg, transparent, transparent 39px, hsl(0 0% 100% / 0.04) 39px, hsl(0 0% 100% / 0.04) 40px),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, hsl(0 0% 100% / 0.04) 39px, hsl(0 0% 100% / 0.04) 40px);
+  }
+  .stadium-spot {
+    background: radial-gradient(60% 50% at 50% 0%, hsl(216 87% 31% / 0.55) 0%, transparent 70%);
+  }
+  .gold-spot {
+    background: radial-gradient(50% 50% at 50% 100%, hsl(45 100% 50% / 0.18) 0%, transparent 70%);
   }
   .gradient-border {
     border: 1px solid transparent;

@@ -110,7 +110,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
 
         {/* Hero */}
         <motion.section
-          className="text-center max-w-lg mx-auto mb-10 md:mb-16"
+          className="text-center w-full max-w-lg mx-auto mb-10 md:mb-16 min-w-0"
           initial="hidden"
           animate="visible"
         >

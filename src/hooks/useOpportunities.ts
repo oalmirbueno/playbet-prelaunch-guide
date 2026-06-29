@@ -16,6 +16,9 @@ export interface Opportunity {
   destination_url: string | null;
   sort_order: number | null;
   created_at: string;
+  image_url?: string | null;
+  thumbnail_url?: string | null;
+  banner_url?: string | null;
 }
 
 const getDomain = () => {
@@ -49,9 +52,7 @@ export const useOpportunities = (limit = 6) => {
 
       let query = centralSupabase
         .from("lp_opportunities")
-        .select(
-          "id, category, badge, title, subtitle, event_name, market_name, odd_label, cta_label, destination_url, sort_order, created_at"
-        )
+        .select("*")
         .eq("is_active", true)
         .or(`starts_at.is.null,starts_at.lte.${nowIso}`)
         .or(`ends_at.is.null,ends_at.gte.${nowIso}`)

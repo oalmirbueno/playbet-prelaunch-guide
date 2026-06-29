@@ -1,8 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { centralSupabase } from "@/lib/centralClient";
 
+export type OpportunityCategory = "sports" | "casino" | "offer" | "guide" | string;
+
 export interface Opportunity {
   id: string;
+  category: OpportunityCategory | null;
   badge: string | null;
   title: string | null;
   subtitle: string | null;
@@ -47,12 +50,12 @@ export const useOpportunities = (limit = 6) => {
       let query = centralSupabase
         .from("lp_opportunities")
         .select(
-          "id, badge, title, subtitle, event_name, market_name, odd_label, cta_label, destination_url, sort_order, created_at"
+          "id, category, badge, title, subtitle, event_name, market_name, odd_label, cta_label, destination_url, sort_order, created_at"
         )
         .eq("is_active", true)
         .or(`starts_at.is.null,starts_at.lte.${nowIso}`)
         .or(`ends_at.is.null,ends_at.gte.${nowIso}`)
-        .order("sort_order", { ascending: true, nullsFirst: false })
+        .order("sort_order", { ascending: false, nullsFirst: false })
         .order("created_at", { ascending: false })
         .limit(limit);
 

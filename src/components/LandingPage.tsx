@@ -2,6 +2,12 @@ import { motion } from "framer-motion";
 import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2, Trophy, Sparkles, Lock, Users, Award, BadgeCheck, KeyRound, EyeOff, Headphones, FileCheck2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import playBetLogo from "@/assets/playbet-logo.png";
+import avatar1 from "@/assets/avatar-br-1.jpg";
+import avatar2 from "@/assets/avatar-br-2.jpg";
+import avatar3 from "@/assets/avatar-br-3.jpg";
+import avatar4 from "@/assets/avatar-br-4.jpg";
+
+const avatars = [avatar1, avatar2, avatar3, avatar4];
 
 const tips = [
   {
@@ -71,25 +77,25 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
       </div>
 
       {/* Ambient layers */}
-      <div className="pointer-events-none absolute inset-0 pitch-grid opacity-60" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[480px] stadium-spot" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[420px] gold-spot" />
-      {/* Subtle Brazil green wash */}
+      <div className="pointer-events-none absolute inset-0 pitch-grid opacity-50" />
+      <div className="pointer-events-none absolute inset-0 br-diagonal opacity-70" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[560px] stadium-spot" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[480px] gold-spot" />
       <div
-        className="pointer-events-none absolute inset-x-0 top-40 h-[300px] opacity-[0.08]"
+        className="pointer-events-none absolute inset-x-0 top-48 h-[320px] opacity-[0.09]"
         style={{ background: "radial-gradient(50% 50% at 50% 50%, #009C3B 0%, transparent 70%)" }}
       />
 
-      <div className="relative flex flex-col items-center px-5 py-6 md:py-12">
+      <div className="relative flex flex-col items-center px-6 pt-8 pb-10 md:pt-14 md:pb-16">
         {/* Top badge */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-primary/40 px-4 py-1.5 backdrop-blur shadow-[0_0_24px_hsl(45_100%_50%/0.18)]"
+          className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-accent/40 bg-primary/40 px-4 py-1.5 backdrop-blur shadow-[0_0_24px_hsl(45_100%_50%/0.18)]"
         >
           <BrazilFlag className="w-4 h-3" />
-          <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-accent">
+          <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.22em] text-accent">
             Edição Copa · Brasil
           </span>
           <span className="relative flex h-2 w-2">
@@ -101,7 +107,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
         <motion.img
           src={playBetLogo}
           alt="PlayBet"
-          className="h-20 md:h-32 mb-5 md:mb-8 drop-shadow-[0_0_24px_hsl(45_100%_50%/0.3)]"
+          className="h-24 md:h-36 mb-10 md:mb-14 drop-shadow-[0_0_28px_hsl(45_100%_50%/0.35)]"
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
@@ -109,57 +115,68 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
 
         {/* Hero */}
         <motion.section
-          className="text-center max-w-lg mx-auto mb-8 md:mb-14"
+          className="text-center max-w-lg mx-auto mb-10 md:mb-16"
           initial="hidden"
           animate="visible"
         >
           <motion.h1
-            className="font-stadium text-[2.6rem] leading-[0.95] md:text-6xl font-black uppercase text-foreground mb-4"
+            className="font-stadium text-[3rem] leading-[0.88] md:text-7xl font-black uppercase text-foreground mb-5 tracking-tight"
             variants={fadeUp}
             custom={0}
           >
-            Antes de começar,{" "}
-            <span className="block text-accent drop-shadow-[0_2px_18px_hsl(45_100%_50%/0.5)]">
+            Antes de começar,
+            <span className="block text-accent drop-shadow-[0_2px_18px_hsl(45_100%_50%/0.5)] mt-1">
               veja isso
             </span>
           </motion.h1>
           <motion.p
-            className="text-muted-foreground text-base md:text-lg mb-6 max-w-md mx-auto"
+            className="text-muted-foreground text-base md:text-lg mb-8 max-w-md mx-auto leading-relaxed"
             variants={fadeUp}
             custom={1}
           >
             Descubra como aproveitar as melhores oportunidades com segurança.
           </motion.p>
 
-          {/* Live social proof */}
+          {/* Live social proof — real Brazilian faces */}
           <motion.div
-            className="flex items-center justify-center gap-3 mb-5 text-xs md:text-sm"
+            className="flex flex-col items-center gap-3 mb-8"
             variants={fadeUp}
             custom={2}
           >
-            <div className="flex -space-x-2">
-              {["#009C3B", "#FFDF00", "#002776", "#FFC300"].map((c, i) => (
+            <div className="flex -space-x-3 items-center">
+              {avatars.map((src, i) => (
                 <div
                   key={i}
-                  className="w-7 h-7 rounded-full border-2 border-background flex items-center justify-center text-[10px] font-black text-background"
-                  style={{ backgroundColor: c }}
+                  className="relative w-11 h-11 rounded-full border-2 border-background overflow-hidden bg-muted shadow-lg"
                 >
-                  {["JP", "AC", "MR", "+"][i]}
+                  <img
+                    src={src}
+                    alt="Brasileiro torcendo"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    width={512}
+                    height={512}
+                  />
                 </div>
               ))}
-            </div>
-            <div className="text-left">
-              <div className="flex items-center gap-1 text-foreground">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-accent text-accent" />
-                ))}
-                <span className="font-bold ml-1">4.9</span>
+              <div className="relative w-11 h-11 rounded-full border-2 border-background bg-accent flex items-center justify-center text-[10px] font-black text-accent-foreground shadow-lg">
+                +50k
               </div>
-              <div className="text-muted-foreground text-[10px] md:text-xs">
+            </div>
+            <div className="flex flex-col items-center gap-1">
+              <div className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-accent text-accent drop-shadow-[0_0_6px_hsl(45_100%_50%/0.5)]" />
+                ))}
+                <span className="font-black text-foreground ml-2 text-sm">4.9</span>
+              </div>
+              <div className="text-muted-foreground text-[11px] md:text-xs flex items-center gap-1.5">
+                <BrazilFlag className="w-3.5 h-2.5" />
                 +50.000 brasileiros já entraram hoje
               </div>
             </div>
           </motion.div>
+
 
           {/* Trust strip */}
           <motion.div

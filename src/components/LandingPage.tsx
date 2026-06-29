@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2, Trophy, Sparkles, Lock, Users, Award, BadgeCheck } from "lucide-react";
+import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2, Trophy, Sparkles, Lock, Users, Award, BadgeCheck, KeyRound, EyeOff, Headphones, FileCheck2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import playBetLogo from "@/assets/playbet-logo.png";
 
@@ -320,6 +320,88 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
                 </span>
               </div>
             ))}
+          </div>
+        </motion.section>
+
+        {/* Security section */}
+        <motion.section
+          className="relative w-full max-w-lg mx-auto mb-10 md:mb-14"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <Shield className="w-5 h-5 text-accent" />
+            <h2 className="font-stadium text-2xl md:text-3xl uppercase text-foreground">
+              Como sua <span className="text-accent">segurança</span> funciona
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-sm md:text-base mb-5">
+            Transparência total sobre como protegemos seus dados e sua experiência na nossa rede.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              {
+                icon: KeyRound,
+                title: "Criptografia SSL/TLS",
+                desc: "Todo o tráfego é criptografado ponta a ponta com certificado TLS 1.3, blindando seus dados em trânsito.",
+              },
+              {
+                icon: FileCheck2,
+                title: "Parceiros verificados",
+                desc: "Cada marca da rede passa por checagem de licença, reputação e histórico antes de entrar na nossa vitrine.",
+              },
+              {
+                icon: EyeOff,
+                title: "Privacidade primeiro",
+                desc: "Não vendemos seus dados. Coletamos apenas o necessário para melhorar sua navegação e indicar boas ofertas.",
+              },
+              {
+                icon: Headphones,
+                title: "Suporte humano 24/7",
+                desc: "Atendimento em português, com resposta em até 1h e canal direto para denúncias e dúvidas sensíveis.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                className="relative rounded-2xl border border-border bg-card/80 backdrop-blur p-4"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+              >
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/30 border border-accent/30 flex items-center justify-center">
+                    <item.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-foreground text-sm md:text-base leading-tight mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground text-xs md:text-[13px] leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-[11px] md:text-xs">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-primary/30 px-3 py-1 text-foreground/90">
+              <Lock className="w-3 h-3 text-accent" /> TLS 1.3
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-primary/30 px-3 py-1 text-foreground/90">
+              <BadgeCheck className="w-3 h-3 text-accent" /> LGPD
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-primary/30 px-3 py-1 text-foreground/90">
+              <Shield className="w-3 h-3 text-accent" /> Anti-fraude
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-primary/30 px-3 py-1 text-foreground/90">
+              <Users className="w-3 h-3 text-accent" /> +18
+            </span>
           </div>
         </motion.section>
 

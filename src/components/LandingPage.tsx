@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2, Trophy, Sparkles, Lock, Users, Award, BadgeCheck } from "lucide-react";
+import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2, Trophy, Sparkles, Lock, Users, Award, BadgeCheck, KeyRound, EyeOff, Headphones, FileCheck2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import playBetLogo from "@/assets/playbet-logo.png";
 

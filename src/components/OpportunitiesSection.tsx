@@ -99,8 +99,22 @@ const SkeletonGrid = () => (
   </div>
 );
 
-const getImage = (op: Opportunity) =>
-  (op as any).image_url || (op as any).banner_url || (op as any).thumbnail_url || null;
+const getImage = (op: Opportunity) => {
+  const m: any = (op as any).metadata || {};
+  return (
+    (op as any).image_url ||
+    (op as any).banner_url ||
+    (op as any).thumbnail_url ||
+    m?.media?.image_url ||
+    m?.image_url ||
+    null
+  );
+};
+
+const getImageAlt = (op: Opportunity) => {
+  const m: any = (op as any).metadata || {};
+  return m?.media?.image_alt || m?.image_alt || op.title || op.event_name || "Destaque";
+};
 
 const ImageOrFallback = ({ op, cat }: { op: Opportunity; cat: Cat }) => {
   const src = getImage(op);
@@ -111,13 +125,17 @@ const ImageOrFallback = ({ op, cat }: { op: Opportunity; cat: Cat }) => {
       <div className="relative h-32 w-full overflow-hidden bg-background">
         <img
           src={src}
-          alt={op.title || op.event_name || "Destaque"}
+          alt={getImageAlt(op)}
           loading="lazy"
           decoding="async"
           width={800}
           height={320}
           className="absolute inset-0 h-full w-full object-cover"
-          onError={(e) => ((e.currentTarget.style.display = "none"))}
+          onError={(e) => {
+            const el = e.currentTarget;
+            el.style.display = "none";
+            el.parentElement?.classList.add("img-failed");
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
       </div>
@@ -159,9 +177,9 @@ const Card = ({ op, onClick, showTag }: { op: Opportunity; onClick: () => void; 
       <ImageOrFallback op={op} cat={cat} />
 
       {/* Top-left badge floating over image */}
-      <div className="absolute top-2 left-2 flex items-center gap-1.5">
-        <span className="inline-flex items-center gap-1 rounded-full bg-accent/90 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-accent-foreground shadow-md">
-          <Flame className="w-3 h-3" /> {badgeLabel}
+      <div className="absolute top-2 left-2 right-2 flex items-center gap-1.5 flex-wrap pr-16">
+        <span className="inline-flex items-center gap-1 rounded-full bg-accent/90 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-accent-foreground shadow-md max-w-full truncate">
+          <Flame className="w-3 h-3 shrink-0" /> <span className="truncate">{badgeLabel}</span>
         </span>
         {showTag && (
           <span className="inline-flex items-center rounded-full bg-background/80 backdrop-blur border border-border px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-foreground/90">
@@ -247,7 +265,7 @@ const OpportunitiesSection = ({ limit = 3 }: Props) => {
 
   return (
     <motion.section
-      className="w-full max-w-lg mx-auto mb-10 md:mb-14"
+      className="w-full max-w-lg mx-auto mb-10 md:mb-14 min-w-0"
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

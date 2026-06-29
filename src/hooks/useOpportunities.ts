@@ -19,6 +19,14 @@ export interface Opportunity {
   image_url?: string | null;
   thumbnail_url?: string | null;
   banner_url?: string | null;
+  metadata?: {
+    image_url?: string | null;
+    image_alt?: string | null;
+    media?: {
+      image_url?: string | null;
+      image_alt?: string | null;
+    } | null;
+  } | null;
 }
 
 const getDomain = () => {

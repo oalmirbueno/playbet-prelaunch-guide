@@ -63,7 +63,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
   };
 
   return (
-    <div className="relative min-h-screen bg-background overflow-hidden">
+    <div className="relative min-h-screen w-full max-w-full bg-background overflow-x-hidden">
       {/* Top Brazil flag stripe */}
       <div className="relative h-1.5 w-full flex">
         <div className="flex-1 bg-[#009C3B]" />
@@ -81,7 +81,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
         style={{ background: "radial-gradient(50% 50% at 50% 50%, #009C3B 0%, transparent 70%)" }}
       />
 
-      <div className="relative flex flex-col items-center px-6 pt-8 pb-10 md:pt-14 md:pb-16">
+      <div className="relative flex flex-col items-center px-4 sm:px-6 pt-8 pb-10 md:pt-14 md:pb-16 w-full max-w-full">
         {/* Top badge */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -110,12 +110,12 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
 
         {/* Hero */}
         <motion.section
-          className="text-center max-w-lg mx-auto mb-10 md:mb-16"
+          className="text-center w-full max-w-lg mx-auto mb-10 md:mb-16 min-w-0"
           initial="hidden"
           animate="visible"
         >
           <motion.h1
-            className="font-stadium text-[3rem] leading-[0.88] md:text-7xl font-black uppercase text-foreground mb-5 tracking-tight"
+            className="font-stadium text-[2.5rem] sm:text-[3rem] leading-[0.9] md:text-7xl font-black uppercase text-foreground mb-5 tracking-tight break-words"
             variants={fadeUp}
             custom={0}
           >

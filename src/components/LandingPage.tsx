@@ -81,7 +81,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
         style={{ background: "radial-gradient(50% 50% at 50% 50%, #009C3B 0%, transparent 70%)" }}
       />
 
-      <div className="relative flex flex-col items-center px-6 pt-8 pb-10 md:pt-14 md:pb-16">
+      <div className="relative flex flex-col items-center px-4 sm:px-6 pt-8 pb-10 md:pt-14 md:pb-16 w-full max-w-full">
         {/* Top badge */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}

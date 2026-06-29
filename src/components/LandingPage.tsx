@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2, Trophy, Sparkles, Lock, Users, Award, BadgeCheck, KeyRound, EyeOff, Headphones, FileCheck2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import playBetLogo from "@/assets/playbet-logo.png";
+import OpportunitiesSection from "@/components/OpportunitiesSection";
 
 const tips = [
   {
@@ -189,6 +190,9 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
             </div>
           </motion.div>
         </motion.section>
+
+        {/* Live opportunities from central DB (hidden if none) */}
+        <OpportunitiesSection />
 
         {/* Tips */}
         <section className="w-full max-w-lg mx-auto space-y-4 mb-10 md:mb-14">

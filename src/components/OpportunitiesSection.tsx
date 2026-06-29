@@ -265,7 +265,7 @@ const OpportunitiesSection = ({ limit = 3 }: Props) => {
 
   return (
     <motion.section
-      className="w-full max-w-lg mx-auto mb-10 md:mb-14"
+      className="w-full max-w-lg mx-auto mb-10 md:mb-14 min-w-0"
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

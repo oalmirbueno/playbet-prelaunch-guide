@@ -19,9 +19,20 @@ export interface Opportunity {
   image_url?: string | null;
   thumbnail_url?: string | null;
   banner_url?: string | null;
+  house_name?: string | null;
+  starts_at?: string | null;
   metadata?: {
     image_url?: string | null;
     image_alt?: string | null;
+    house?: { name?: string | null; logo_url?: string | null } | null;
+    event?: {
+      name?: string | null;
+      starts_at?: string | null;
+      home_team?: string | null;
+      away_team?: string | null;
+      home_team_logo_url?: string | null;
+      away_team_logo_url?: string | null;
+    } | null;
     media?: {
       image_url?: string | null;
       image_alt?: string | null;

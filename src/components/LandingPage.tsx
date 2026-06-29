@@ -115,7 +115,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
           animate="visible"
         >
           <motion.h1
-            className="font-stadium text-[3rem] leading-[0.88] md:text-7xl font-black uppercase text-foreground mb-5 tracking-tight"
+            className="font-stadium text-[2.5rem] sm:text-[3rem] leading-[0.9] md:text-7xl font-black uppercase text-foreground mb-5 tracking-tight break-words"
             variants={fadeUp}
             custom={0}
           >

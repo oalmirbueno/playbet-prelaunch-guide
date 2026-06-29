@@ -194,9 +194,6 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
           </motion.div>
         </motion.section>
 
-        {/* Live opportunities from central DB (hidden if none) */}
-        <OpportunitiesSection />
-
         {/* Tips */}
         <section className="w-full max-w-lg mx-auto space-y-4 mb-10 md:mb-14">
           <motion.div

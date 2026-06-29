@@ -1,8 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { centralSupabase } from "@/lib/centralClient";
 
+export type OpportunityCategory = "sports" | "casino" | "offer" | "guide" | string;
+
 export interface Opportunity {
   id: string;
+  category: OpportunityCategory | null;
   badge: string | null;
   title: string | null;
   subtitle: string | null;

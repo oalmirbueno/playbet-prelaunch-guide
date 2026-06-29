@@ -108,9 +108,6 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
           transition={{ duration: 0.5 }}
         />
 
-        {/* Live opportunities from central DB (no topo, hidden if none) */}
-        <OpportunitiesSection />
-
         {/* Hero */}
         <motion.section
           className="text-center max-w-lg mx-auto mb-10 md:mb-16"
@@ -132,8 +129,9 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
             variants={fadeUp}
             custom={1}
           >
-            Descubra como aproveitar as melhores oportunidades com segurança.
+            Veja destaques selecionados pela PlayBet e confira tudo na casa parceira antes de apostar.
           </motion.p>
+
 
           {/* Social proof — minimal, sem fotos */}
           <motion.div

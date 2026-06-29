@@ -63,7 +63,7 @@ const LandingPage = ({ affiliateLink, onCtaClick }: LandingPageProps) => {
   };
 
   return (
-    <div className="relative min-h-screen bg-background overflow-hidden">
+    <div className="relative min-h-screen w-full max-w-full bg-background overflow-x-hidden">
       {/* Top Brazil flag stripe */}
       <div className="relative h-1.5 w-full flex">
         <div className="flex-1 bg-[#009C3B]" />

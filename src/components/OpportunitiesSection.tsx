@@ -177,9 +177,9 @@ const Card = ({ op, onClick, showTag }: { op: Opportunity; onClick: () => void; 
       <ImageOrFallback op={op} cat={cat} />
 
       {/* Top-left badge floating over image */}
-      <div className="absolute top-2 left-2 flex items-center gap-1.5">
-        <span className="inline-flex items-center gap-1 rounded-full bg-accent/90 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-accent-foreground shadow-md">
-          <Flame className="w-3 h-3" /> {badgeLabel}
+      <div className="absolute top-2 left-2 right-2 flex items-center gap-1.5 flex-wrap pr-16">
+        <span className="inline-flex items-center gap-1 rounded-full bg-accent/90 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-accent-foreground shadow-md max-w-full truncate">
+          <Flame className="w-3 h-3 shrink-0" /> <span className="truncate">{badgeLabel}</span>
         </span>
         {showTag && (
           <span className="inline-flex items-center rounded-full bg-background/80 backdrop-blur border border-border px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-foreground/90">

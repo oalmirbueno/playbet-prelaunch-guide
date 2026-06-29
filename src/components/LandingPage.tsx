@@ -2,6 +2,12 @@ import { motion } from "framer-motion";
 import { Zap, Shield, Target, Star, Clock, ArrowRight, CheckCircle2, Trophy, Sparkles, Lock, Users, Award, BadgeCheck, KeyRound, EyeOff, Headphones, FileCheck2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import playBetLogo from "@/assets/playbet-logo.png";
+import avatar1 from "@/assets/avatar-br-1.jpg";
+import avatar2 from "@/assets/avatar-br-2.jpg";
+import avatar3 from "@/assets/avatar-br-3.jpg";
+import avatar4 from "@/assets/avatar-br-4.jpg";
+
+const avatars = [avatar1, avatar2, avatar3, avatar4];
 
 const tips = [
   {
